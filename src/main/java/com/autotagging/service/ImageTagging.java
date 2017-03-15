@@ -5,6 +5,7 @@ package com.autotagging.service;
  */
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import clarifai2.api.ClarifaiBuilder;
@@ -51,9 +52,22 @@ public class ImageTagging {
 
                     if (concepts != null && concepts.size() > 0) {
                         for (int j = 0; j < concepts.size(); j++) {
-
                             resultList.add(concepts.get(j).name());
                         }
+
+                        /*
+                        Iterator<Concept> tags = concepts.listIterator();
+                        while(tags.hasNext()){
+                            Concept c = tags.next();
+                            resultList.add(c.name());
+                        }
+
+
+                        for (Concept tags : concepts){
+                            resultList.add(tags.name());
+                        }
+
+                        */
                     }
                 }
             }
